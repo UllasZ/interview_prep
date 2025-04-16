@@ -24,6 +24,17 @@ Constraints:
 def trap(height):
     print(height)
 
+    left = 0
+    res = []
+    while left == len(height):
+        if height[left] > height[left + 1]:
+            continue
+        else:
+            res.append(height[left + 1] - height[left])
+
+        left += 1
+    print(res)
+
 
 h = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
 trap(h)
