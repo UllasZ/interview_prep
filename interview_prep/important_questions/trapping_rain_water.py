@@ -22,19 +22,39 @@ Constraints:
 
 
 def trap(height):
-    print(height)
 
-    left = 0
-    res = []
-    while left == len(height):
-        if height[left] > height[left + 1]:
-            continue
+    if not height:
+        print("Total water that can be trapped is 0")
+        return 0
+
+    print(f"\nHeight: {height}")
+
+    left_index, right_index = 0, len(height) - 1
+    left_max, right_max = height[left_index], height[right_index]
+    res = 0
+
+    while left_index < right_index:
+
+        if height[left_index] < height[right_index]:
+            left_index +=1
+            left_max = max(left_max, height[left_index])
+            res += left_max - height[left_index]
+
         else:
-            res.append(height[left + 1] - height[left])
+            right_index -= 1
+            right_max = max(right_max, height[right_index])
+            res += right_max - height[right_index]
 
-        left += 1
-    print(res)
+    print(f"Total water that can be trapped is {res}")
 
 
-h = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
-trap(h)
+if __name__ == "__main__":
+
+    h1 = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+    trap(h1)
+
+    h2 = [4,2,0,3,2,5]
+    trap(h2)
+
+    a = 7
+    print(a.__str__())
