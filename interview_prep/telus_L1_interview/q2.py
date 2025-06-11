@@ -4,9 +4,9 @@
 
 
 def sort_nums(nums):
-    low = mid = 0
-
-    high  = len(nums) -1
+    low = 0
+    mid = 0
+    high = len(nums) - 1
 
     while mid <= high:
 
@@ -20,9 +20,9 @@ def sort_nums(nums):
 
         else:
             nums[mid], nums[high] = nums[high], nums[mid]
-            high -=1
+            high -= 1
 
     return nums
 
 
-print(sort_nums([ 0, 1, 2, 2, 1, 0, 0, 2, 0, 1, 1, 0 ]))
+print(sort_nums([0, 1, 2, 2, 1, 0, 0, 2, 0, 1, 1, 0]))
